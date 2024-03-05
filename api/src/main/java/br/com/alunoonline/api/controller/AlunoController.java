@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/aluno")
 public class AlunoController {
-
-    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public String exibirNome () {
-        return "Helison";
+    @GetMapping
+    public String mostrarNome(){
+        return "Jessica Neves";
     }
-
 }

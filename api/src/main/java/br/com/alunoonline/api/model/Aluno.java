@@ -11,7 +11,10 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 @Entity
+
+@Table(name = "tb_aluno")
 public class Aluno implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

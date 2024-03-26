@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/professor")
 public class ProfessorController {
@@ -17,5 +19,22 @@ public class ProfessorController {
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody Professor professor) {
         professorService.create(professor);
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Optional<Professor> findById(@PathVariable Long id) {
+        return professorService.findById(id);
+
+    }
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@RequestBody Professor professor, @PathVariable Long id) {
+        professorService.update(id, professor);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) {
+        professorService.deleteById(id);
     }
 }

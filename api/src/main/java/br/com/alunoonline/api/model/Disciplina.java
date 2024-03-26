@@ -10,8 +10,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
 @Entity
+
+@Table(name = "tb_disciplina")
 public class Disciplina implements Serializable {
 
 

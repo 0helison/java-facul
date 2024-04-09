@@ -1,11 +1,13 @@
 package br.com.alunoonline.api.controller;
 
+import br.com.alunoonline.api.model.Aluno;
 import br.com.alunoonline.api.model.Disciplina;
 import br.com.alunoonline.api.service.DisciplinaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,6 +21,13 @@ public class DisciplinaController {
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody Disciplina disciplina) {
         disciplinaService.create(disciplina);
+    }
+
+    @GetMapping("/all")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Disciplina> findAll() {
+        return disciplinaService.findAll();
+
     }
 
     @GetMapping("/{id}")

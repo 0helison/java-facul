@@ -28,6 +28,10 @@ public class DisciplinaService {
         return disciplinaRepository.findById(id);
     }
 
+    public List<Disciplina> findByProfessorId(Long professorId){
+        return disciplinaRepository.findByProfessorId(professorId);
+    }
+
     public void update(Long id, Disciplina disciplina) {
         Optional<Disciplina> disciplinaFromDb = findById(id);
 
